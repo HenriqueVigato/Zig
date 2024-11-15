@@ -25,3 +25,7 @@ test "expect addOne not add one to 41" {
 fn addOne(number: i32) i32 {
     return number + 1;
 }
+
+test "this will be skipped" {
+    return error.SkipZigTest;
+}
