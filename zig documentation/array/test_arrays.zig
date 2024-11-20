@@ -79,7 +79,6 @@ comptime {
 var fancy_array = init: {
     var initial_value: [10]Point = undefined;
     for (&initial_value, 0..) |*pt, i| {
-        // TODO: ENTENDER OQUE ESSE PT.* ESTA FAZENDO
         pt.* = Point{
             .x = @intCast(i),
             .y = @intCast(i * 2),
