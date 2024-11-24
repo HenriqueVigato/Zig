@@ -19,3 +19,16 @@ test "address of sytax" {
     y_ptr.* += 1;
     try expect(y_ptr.* == 5679);
 }
+
+test "pointer array access" {
+    // Taking an addressof an individual elemet gives a
+    // single-item pointer. This kind of pointer
+    // does not support pointer arithmetic.
+    var array = [_]u8{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    const ptr = &array[2];
+    try expect(@TypeOf(ptr) == *u8);
+
+    try expect(array[2] == 3);
+    ptr.* += 1;
+    try expect(array[2] == 4);
+}
