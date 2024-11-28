@@ -39,9 +39,9 @@ test "pointer arithmetc with slices" {
 test "testando" {
     var array1 = [_]i32{ 1, 2, 45, 4, 6, 3 };
     var array = array1[1..array1.len];
-    _ = &array;
     array.ptr += 1;
 
-    try expect(array.len == 6);
-    // try expect(array[5] != 3);
+    try expect(array.len == 5);
+    try expect(array[0] == 45);
+    try expect(array[4] != 3);
 }
